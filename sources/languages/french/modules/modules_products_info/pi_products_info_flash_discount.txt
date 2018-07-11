@@ -1,0 +1,2 @@
+module_products_info_flash_discount = Souhaitez-vous afficher la date de fin de la remise Flash ?
+module_products_info_flash_discount_description = Affiche la fin date de la remise Flash  dans la page de description du produit

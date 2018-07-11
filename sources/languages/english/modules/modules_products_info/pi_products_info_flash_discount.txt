@@ -1,0 +1,4 @@
+
+ module_products_info_flash_discount = Do you want to display the Flash Discount ?
+ module_products_info_flash_discount_description = Display the flash Discount
+ text_flash_discount = Flash discount
