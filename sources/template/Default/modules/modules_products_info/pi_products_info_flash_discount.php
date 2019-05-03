@@ -34,13 +34,12 @@
     }
 
     public function execute() {
+      $CLICSHOPPING_ProductsCommon = Registry::get('ProductsCommon');
 
-      if (isset($_GET['products_id']) && isset($_GET['Products']) ) {
-
+      if ($CLICSHOPPING_ProductsCommon->getID() && isset($_GET['Products']) ) {
         $content_width = (int)MODULE_PRODUCTS_INFO_FLASH_DISCOUNT_CONTENT_WIDTH;
         $text_position = MODULE_PRODUCTS_INFO_FLASH_DISCOUNT_POSITION;
 
-        $CLICSHOPPING_ProductsCommon = Registry::get('ProductsCommon');
         $CLICSHOPPING_Template = Registry::get('Template');
 
         $products_flash_discount =  $CLICSHOPPING_ProductsCommon->getProductsFlashDiscount();
@@ -49,7 +48,7 @@
           $products_flash_discount_content = '<!-- Start flash discount -->' . "\n";
 
           ob_start();
-          require($CLICSHOPPING_Template->getTemplateModules($this->group . '/content/products_info_flash_discount'));
+          require_once($CLICSHOPPING_Template->getTemplateModules($this->group . '/content/products_info_flash_discount'));
           $products_flash_discount_content .= ob_get_clean();
 
           $products_flash_discount_content .= '<!-- end flash discount -->' . "\n";
