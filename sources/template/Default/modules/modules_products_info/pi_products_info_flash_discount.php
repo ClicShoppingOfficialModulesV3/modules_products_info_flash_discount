@@ -15,10 +15,10 @@
   class pi_products_info_flash_discount {
     public $code;
     public $group;
-    public $title;
-    public $description;
-    public $sort_order;
-    public $enabled = false;
+    public string $title;
+    public string $description;
+    public ?int $sort_order = 0;
+    public bool $enabled = false;
 
     public function __construct() {
       $this->code = get_class($this);
@@ -36,7 +36,7 @@
     public function execute() {
       $CLICSHOPPING_ProductsCommon = Registry::get('ProductsCommon');
 
-      if ($CLICSHOPPING_ProductsCommon->getID() && isset($_GET['Products']) ) {
+      if ($CLICSHOPPING_ProductsCommon->getID() && isset($_GET['Products'])) {
         $content_width = (int)MODULE_PRODUCTS_INFO_FLASH_DISCOUNT_CONTENT_WIDTH;
         $text_position = MODULE_PRODUCTS_INFO_FLASH_DISCOUNT_POSITION;
 
@@ -44,7 +44,7 @@
 
         $products_flash_discount =  $CLICSHOPPING_ProductsCommon->getProductsFlashDiscount();
 
-        if (!empty($products_flash_discount) ) {
+        if (!empty($products_flash_discount)) {
           $products_flash_discount_content = '<!-- Start flash discount -->' . "\n";
 
           ob_start();
